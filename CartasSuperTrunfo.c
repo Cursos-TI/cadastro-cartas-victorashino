@@ -13,6 +13,8 @@ int main() {
   float second_card_area, second_card_gdp, second_card_population_density;
   float second_card_gdp_percapita, second_card_power;
 
+  int menu_choice;
+
   // CARTA 1
   printf("CARTA 1\n");
 
@@ -83,37 +85,62 @@ int main() {
     second_card_gdp_percapita +
     second_card_atractions;
 
-  // COMPARAÇÃO
-  printf("\nComparação de cartas:\n\n");
+  printf("######## Comparar cartas ########\n");
+  printf("1. Código\n");
+  printf("2. Nome\n");
+  printf("3. População\n");
+  printf("4. Área\n");
+  printf("5. PIB\n");
+  printf("6. Pontos turísticos\n");
+  printf("7. Densidade populacional\n");
+  printf("8. PIB Per Capita\n");
+  printf("\n");
+  printf("Qual atributo deseja comparar?\n");
+  scanf("%d", &menu_choice);
 
-  printf("População: Carta %d venceu (%d)\n",
-         1 + (second_card_population > first_card_population),
-         1 - (first_card_population > second_card_population));
-
-  printf("Área: Carta %d venceu (%d)\n",
-         1 + (second_card_area > first_card_area),
-         1 - (first_card_area > second_card_area));
-
-  printf("PIB: Carta %d venceu (%d)\n",
-         1 + (second_card_gdp > first_card_gdp),
-         1 - (first_card_gdp > second_card_gdp));
-
-  printf("Pontos turísticos: Carta %d venceu (%d)\n",
-         1 + (second_card_atractions > first_card_atractions),
-         1 - (first_card_atractions > second_card_atractions));
-
-  printf("Densidade populacional: Carta %d venceu (%d)\n",
-         (second_card_population_density < first_card_population_density),
-         (first_card_population_density < second_card_population_density));
-
-  printf("PIB per capita: Carta %d venceu (%d)\n",
-         1 + (second_card_gdp_percapita > first_card_gdp_percapita),
-         1 - (first_card_gdp_percapita > second_card_gdp_percapita));
-
-  printf("Super Poder: Carta %d venceu (%d)\n",
-         1 + (second_card_power > first_card_power),
-         1 - (first_card_power > second_card_power));
+  switch (menu_choice) {
+    case 1:
+      printf("Código\n");
+      printf("Carta 1: %s\nCarta 2: %s\n", first_card_code, second_card_code);
+      break;
+    case 2:
+      printf("Cidade\n");
+      printf("Carta 1: %s\nCarta 2: %s\n", first_card_city, second_card_city);
+      break;
+    case 3:
+      printf("População\n");
+      printf("Carta 1: %d - Carta 2: %d\n", first_card_population, second_card_population);
+      printf("População: Carta %d venceu!\n", 1 + (second_card_population > first_card_population));
+      break;
+    case 4:
+      printf("Área\n");
+      printf("Carta 1: %.2f - Carta 2: %.2f\n", first_card_area, second_card_area);
+      printf("Área: Carta %d venceu (%d)\n", 1 + (second_card_area > first_card_area));
+      break;
+    case 5:
+      printf("PIB\n");
+      printf("Carta 1: %.2f - Carta 2: %.2f\n", first_card_gdp, second_card_gdp);
+      printf("PIB: Carta %d venceu (%d)\n", 1 + (second_card_gdp > first_card_gdp));
+      break;
+    case 6:
+      printf("Pontos turísticos\n");
+      printf("Carta 1: %d - Carta 2: %d\n", first_card_atractions, second_card_atractions);
+      printf("Pontos turísticos: Carta %d venceu (%d)\n", 1 + (second_card_atractions > first_card_atractions));
+      break;
+    case 7:
+      printf("Densidade Populacional\n");
+      printf("Carta 1: %.2f - Carta 2: %.2f\n", first_card_population_density, second_card_population_density);
+      printf("Densidade populacional: Carta %d venceu (%d)\n", 1 + (second_card_population_density < first_card_population_density));
+      break;
+    case 8:
+      printf("PIB Per Capita\n");
+      printf("Carta 1: %.2f - Carta 2: %.2f\n", first_card_gdp_percapita, second_card_gdp_percapita);
+      printf("PIB per capita: Carta %d venceu (%d)\n", 1 + (second_card_gdp_percapita > first_card_gdp_percapita));
+      break;
+    default:
+      printf("Opção inválida!");
+      break;
+  }
 
   return 0;
 }
-
